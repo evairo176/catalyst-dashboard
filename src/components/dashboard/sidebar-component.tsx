@@ -135,10 +135,46 @@ const SidebarComponent = (props: Props) => {
               </SidebarItem>
             );
           })}
+          <Dropdown>
+            <DropdownButton current as={SidebarItem} className="lg:mb-2.5">
+              <Cog8ToothIcon />
+              <SidebarLabel>Settings</SidebarLabel>
+              <ChevronDownIcon />
+            </DropdownButton>
+            <DropdownMenu
+              className="min-w-80 lg:min-w-64"
+              anchor="bottom start"
+            >
+              <DropdownItem href="/teams/1/settings">
+                <Cog8ToothIcon />
+                <DropdownLabel>Settings</DropdownLabel>
+              </DropdownItem>
+              <DropdownDivider />
+              <DropdownItem href="/teams/1">
+                <Avatar slot="icon" src="/user.png" />
+                <DropdownLabel>Tailwind Labs</DropdownLabel>
+              </DropdownItem>
+              <DropdownItem href="/teams/2">
+                <Avatar
+                  slot="icon"
+                  initials="WC"
+                  className="bg-purple-500 text-white"
+                />
+                <DropdownLabel>Workcation</DropdownLabel>
+              </DropdownItem>
+              <DropdownDivider />
+              <DropdownItem href="/teams/create">
+                <PlusIcon />
+                <DropdownLabel>New team&hellip;</DropdownLabel>
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
         </SidebarSection>
-        <SidebarSection className="max-lg:hidden">
+        <SidebarSection>
           <SidebarHeading>Upcoming Events</SidebarHeading>
-          <SidebarItem href="/events/1">Bear Hug: Live in Concert</SidebarItem>
+          <SidebarItem href="/events/1" current>
+            Bear Hug: Live in Concert
+          </SidebarItem>
           <SidebarItem href="/events/2">Viking People</SidebarItem>
           <SidebarItem href="/events/3">Six Fingers — DJ Set</SidebarItem>
           <SidebarItem href="/events/4">We All Look The Same</SidebarItem>
